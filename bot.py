@@ -7,8 +7,6 @@ from dotenv import load_dotenv
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler, ConversationHandler
 
-
-
 PORT = int(os.environ.get('PORT', 5000))
 
 # Enable logging
@@ -232,6 +230,7 @@ def reply(update, context):
                 text=reply_text
             )
 
+
 def pokpok(update, context):
     context.bot.delete_message(
         chat_id=update.effective_chat.id,
@@ -245,6 +244,7 @@ def pokpok(update, context):
         chat_id=update.effective_chat.id,
         photo=open('images/1.png', 'rb')
     )
+
 
 def quack(update, context):
     context.bot.delete_message(
@@ -260,6 +260,7 @@ def quack(update, context):
         photo=open('images/2.jpeg', 'rb')
     )
 
+
 def birb(update, context):
     context.bot.delete_message(
         chat_id=update.effective_chat.id,
@@ -274,6 +275,7 @@ def birb(update, context):
         photo=open('images/3.jpg', 'rb')
     )
 
+
 def chihuahua(update, context):
     context.bot.send_message(
         chat_id=update.effective_chat.id,
@@ -283,6 +285,7 @@ def chihuahua(update, context):
         chat_id=update.effective_chat.id,
         photo=open('images/4.jpg', 'rb')
     )
+
 
 def main():
     """Start the bot."""
@@ -317,7 +320,7 @@ def main():
     )
 
     dp.add_handler(conv_handler)
-    #dp.add_handler(MessageHandler(Filters.text, reply))
+    # dp.add_handler(MessageHandler(Filters.text, reply))
 
     # log all errors
     dp.add_error_handler(error)
